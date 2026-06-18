@@ -21,9 +21,9 @@ body {
   background-image: url('/images/booking-bg.webp');
   background-size: cover;
   background-position: center;
-  opacity: 0.25;
+  opacity: 0.45;
 }
 
 .dark .booking-bg {
-  opacity: 0.12;
+  opacity: 0.25;
 }
