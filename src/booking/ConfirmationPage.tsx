@@ -89,7 +89,7 @@ export default function ConfirmationPage({ theme: t, service, master, date, time
             onChange={(e) => setName(e.target.value)}
             placeholder="Ваше имя"
             maxLength={40}
-            className={`w-full px-4 py-3.5 rounded-2xl border text-sm outline-none transition-all ${t.card} ${t.border} ${t.text} placeholder:${t.muted}`}
+            className={`w-full px-5 py-4 rounded-2xl border text-base outline-none transition-all ${t.card} ${t.border} ${t.text} placeholder:${t.muted}`}
             required
           />
           <input
@@ -98,7 +98,7 @@ export default function ConfirmationPage({ theme: t, service, master, date, time
             placeholder="Номер телефона"
             type="tel"
             maxLength={20}
-            className={`w-full px-4 py-3.5 rounded-2xl border text-sm outline-none transition-all ${t.card} ${t.border} ${t.text} placeholder:${t.muted}`}
+            className={`w-full px-5 py-4 rounded-2xl border text-base outline-none transition-all ${t.card} ${t.border} ${t.text} placeholder:${t.muted}`}
             required
           />
 

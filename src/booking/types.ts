@@ -52,7 +52,7 @@ export const SERVICES: Service[] = [
 
 export const MASTERS: Master[] = [
   { id: "anna", name: "Анна", imageUrl: "/images/booking/master-anna.webp" },
-  { id: "ekaterina", name: "Екатерина", imageUrl: "/images/booking/master-ekaterina.webp" },
+  { id: "ekaterina", name: "Андрей", imageUrl: "/images/booking/master-andrey.webp" },
 ];
 
 export const TIME_SLOTS = [
