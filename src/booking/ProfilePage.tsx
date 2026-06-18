@@ -36,8 +36,8 @@ export default function ProfilePage({ theme: t, name, visitCount, favoriteMaster
       >
         {/* Avatar */}
         <div className="text-center">
-          <div className={`w-20 h-20 rounded-full ${t.accentBg} flex items-center justify-center text-3xl mx-auto mb-3`}>
-            💎
+          <div className={`w-20 h-20 rounded-full ${t.accentBg} flex items-center justify-center mx-auto mb-3`}>
+            <img src="/images/booking/logo.webp" alt="BeautyStudio" className="w-12 h-12" />
           </div>
           <h2 className={`text-xl font-bold ${t.text}`}>{name}</h2>
         </div>

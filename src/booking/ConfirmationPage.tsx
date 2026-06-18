@@ -75,7 +75,7 @@ export default function ConfirmationPage({ theme: t, service, master, date, time
 
         {/* Summary */}
         <div className={`${t.card} ${t.border} border rounded-2xl p-5 mb-6 space-y-3 shadow-sm`}>
-          <Row label="Услуга" value={`${service.emoji} ${service.name}`} theme={t} />
+          <Row label="Услуга" value={service.name} icon={service.iconUrl} theme={t} />
           <Row label="Стоимость" value={`${service.price}₽`} theme={t} />
           <Row label="Мастер" value={master.name} theme={t} />
           <Row label="Дата" value={fmtDate} theme={t} />
@@ -119,11 +119,14 @@ export default function ConfirmationPage({ theme: t, service, master, date, time
   );
 }
 
-function Row({ label, value, theme: t }: { label: string; value: string; theme: BookingTheme }) {
+function Row({ label, value, icon, theme: t }: { label: string; value: string; icon?: string; theme: BookingTheme }) {
   return (
     <div className="flex items-center justify-between">
       <span className={`text-xs ${t.muted}`}>{label}</span>
-      <span className={`text-sm font-medium ${t.text}`}>{value}</span>
+      <span className={`text-sm font-medium ${t.text} flex items-center gap-1.5`}>
+        {icon && <img src={icon} alt="" className="w-4 h-4 rounded object-cover" />}
+        {value}
+      </span>
     </div>
   );
 }

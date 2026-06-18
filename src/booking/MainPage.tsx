@@ -26,7 +26,7 @@ export default function MainPage({ theme: t, onSelect }: Props) {
       >
         {/* Header */}
         <div className="text-center">
-          <div className="text-4xl mb-2">💎</div>
+          <img src="/images/booking/logo.webp" alt="BeautyStudio" className="w-12 h-12 mx-auto mb-2" />
           <h1 className={`text-2xl font-bold ${t.text}`}>BeautyStudio</h1>
           <p className={`text-xs ${t.muted} mt-1`}>Запись к мастеру</p>
         </div>
@@ -47,7 +47,7 @@ export default function MainPage({ theme: t, onSelect }: Props) {
                       : `${t.card} ${t.border} ${t.text}`
                   }`}
                 >
-                  <span className="text-2xl">{s.emoji}</span>
+                  <img src={s.iconUrl} alt={s.name} className="w-9 h-9 rounded-lg object-cover" />
                   <div className="flex-1 min-w-0">
                     <div className={`text-sm font-medium ${isSel ? t.btnText : t.text}`}>{s.name}</div>
                     <div className={`text-xs mt-0.5 ${isSel ? `${t.btnText}/70` : t.muted}`}>
@@ -85,7 +85,7 @@ export default function MainPage({ theme: t, onSelect }: Props) {
                         : `${t.card} ${t.border} ${t.text}`
                     }`}
                   >
-                    <div className="text-2xl mb-1">👩</div>
+                    <img src={m.imageUrl} alt={m.name} className="w-12 h-12 rounded-full object-cover mx-auto mb-1" />
                     <div className="text-xs font-medium">{m.name}</div>
                   </button>
                 );
