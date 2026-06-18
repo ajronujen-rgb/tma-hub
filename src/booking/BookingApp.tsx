@@ -70,7 +70,9 @@ export default function BookingApp() {
   };
 
   return (
-    <div className={`${t.bg} ${t.text} min-h-screen font-sans pb-20 transition-colors duration-300`}>
+    <div className={`${t.bg} ${t.text} min-h-screen font-sans pb-20 transition-colors duration-300 relative ${tgTheme.isDark ? 'dark' : ''}`}>
+      <div className="booking-bg" />
+      <div className="relative z-10">
       <AnimatePresence mode="wait">
         <motion.div
           key={screen}
@@ -122,6 +124,7 @@ export default function BookingApp() {
       </AnimatePresence>
 
       <Navigation current={screen} onNavigate={navigate} theme={t} />
+      </div>
     </div>
   );
 }
