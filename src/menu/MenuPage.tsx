@@ -1,4 +1,3 @@
-import { useRef } from "react";
 import { motion } from "motion/react";
 import type { MenuTheme } from "./types";
 import { CATEGORIES } from "./data";
@@ -9,11 +8,40 @@ interface Props {
   onSelectCategory: (id: string) => void;
 }
 
+const EMOJIS: Record<string, string> = {
+  breakfast: "🥞", salads: "🥗", hot: "🍝", drinks: "☕", desserts: "🍰",
+};
+const FALLBACK = "🍽️";
+
 export default function MenuPage({ theme: t, cartCount, onSelectCategory }: Props) {
-  const scrollRef = useRef<HTMLDivElement>(null);
+  /* ——— Layout ———
+     First 3 cats in a row, then 2 cats in a row centered */
+  const row1 = CATEGORIES.slice(0, 3);
+  const row2 = CATEGORIES.slice(3); // 2 items
+
+  const renderCard = (cat: (typeof CATEGORIES)[0], index: number) => (
+    <button
+      key={cat.id}
+      onClick={() => onSelectCategory(cat.id)}
+      className={`flex flex-col items-center justify-center gap-3 rounded-2xl border-2 ${t.card} ${t.border} shadow-sm transition-transform active:scale-95`}
+      style={{
+        aspectRatio: index < 3 ? "1/1" : "1/1.2",
+      }}
+    >
+      <img
+        src={cat.iconUrl}
+        alt={cat.name}
+        className="w-11 h-11 object-contain"
+        onError={(e) => {
+          (e.target as HTMLImageElement).outerHTML = `<span style="font-size:2.5rem;line-height:1">${EMOJIS[cat.id] ?? FALLBACK}</span>`;
+        }}
+      />
+      <span className={`text-sm font-semibold ${t.text}`}>{cat.name}</span>
+    </button>
+  );
 
   return (
-    <div className="flex flex-col min-h-screen px-3 py-6">
+    <div className="flex flex-col min-h-screen px-3 pt-6 pb-4">
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
@@ -28,59 +56,38 @@ export default function MenuPage({ theme: t, cartCount, onSelectCategory }: Prop
               className="w-14 h-14 rounded-2xl"
               onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
             />
-            <h1 className={`text-3xl font-bold ${t.text}`}>
-              TableCafe
-            </h1>
+            <h1 className={`text-3xl font-bold ${t.text}`}>TableCafe</h1>
           </div>
           <p className={`text-sm ${t.muted}`}>
             Добро пожаловать! Столик <span className={`font-semibold ${t.accent}`}>#7</span>
           </p>
         </div>
 
-        {/* Categories carousel */}
-        <div className="mb-5">
-          <h2 className={`text-sm font-semibold ${t.text} mb-3`}>Категории</h2>
-          <div
-            ref={scrollRef}
-            className="flex gap-3 overflow-x-auto scrollbar-none pb-1"
-            style={{ scrollSnapType: "x mandatory" }}
-          >
-            {CATEGORIES.map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => onSelectCategory(cat.id)}
-                className="flex flex-col items-center gap-2 min-w-[88px] snap-start"
-              >
-                <div className={`w-20 h-20 rounded-2xl ${t.card} ${t.border} border-2 flex items-center justify-center shadow-sm transition-transform active:scale-95`}>
-                  <img
-                    src={cat.iconUrl}
-                    alt={cat.name}
-                    className="w-10 h-10 object-contain"
-                    onError={(e) => {
-                      const emojis: Record<string, string> = {
-                        breakfast: "🥞", salads: "🥗", hot: "🍝", drinks: "☕", desserts: "🍰",
-                      };
-                      (e.target as HTMLImageElement).outerHTML = `<span class="text-3xl">${emojis[cat.id] ?? "🍽️"}</span>`;
-                    }}
-                  />
-                </div>
-                <span className={`text-xs font-medium ${t.text}`}>{cat.name}</span>
-              </button>
+        {/* Categories — full screen grid */}
+        <div className="flex flex-col flex-1 gap-3">
+          {/* Row 1: 3 items */}
+          <div className="flex gap-3 flex-1">
+            {row1.map((cat, i) => renderCard(cat, i))}
+          </div>
+
+          {/* Row 2: 2 items (centered) */}
+          <div className="flex gap-3 flex-1">
+            <div className="flex-1" /> {/* spacer */}
+            {row2.map((cat, i) => (
+              <div key={cat.id} className="flex-1 flex">
+                {renderCard(cat, i + 3)}
+              </div>
             ))}
+            <div className="flex-1" /> {/* spacer */}
           </div>
         </div>
 
-        {/* Quick info */}
-        <div className={`${t.card} ${t.border} border rounded-2xl p-5 text-center`}>
-          <p className={`text-sm ${t.muted} mb-2`}>
-            🍽️ Выберите категорию, чтобы открыть меню
-          </p>
-          {cartCount > 0 && (
-            <p className={`text-xs ${t.accent} font-medium`}>
-              В корзине {cartCount} {cartCount === 1 ? "позиция" : cartCount < 5 ? "позиции" : "позиций"}
-            </p>
-          )}
-        </div>
+        {/* Cart pill */}
+        {cartCount > 0 && (
+          <div className={`mt-4 py-3 px-5 rounded-full ${t.accentBg} ${t.btnText} text-sm font-semibold text-center shadow-sm`}>
+            🛒 {cartCount} {cartCount === 1 ? "позиция" : cartCount < 5 ? "позиции" : "позиций"} в корзине
+          </div>
+        )}
       </motion.div>
     </div>
   );

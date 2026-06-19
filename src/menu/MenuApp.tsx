@@ -102,7 +102,13 @@ export default function MenuApp() {
   }
 
   return (
-    <div className={`${t.bg} min-h-screen pb-20`}>
+    <div className={`${t.bg} min-h-screen pb-20 relative`}>
+      {/* Background overlay */}
+      <div
+        className="fixed inset-0 z-0 opacity-[0.04] pointer-events-none"
+        style={{ backgroundImage: "url('/images/tableorder/bg.webp')", backgroundSize: "cover", backgroundPosition: "center" }}
+      />
+      <div className="relative z-10">
       {/* Cart toast */}
       <AnimatePresence>
         {cartToast && (
@@ -174,6 +180,7 @@ export default function MenuApp() {
       </AnimatePresence>
 
       <Navigation current={tab} cartCount={cartCount} onTab={setTab} theme={t} />
+    </div>
     </div>
   );
 }
