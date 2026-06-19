@@ -14,32 +14,6 @@ const EMOJIS: Record<string, string> = {
 const FALLBACK = "🍽️";
 
 export default function MenuPage({ theme: t, cartCount, onSelectCategory }: Props) {
-  /* ——— Layout ———
-     First 3 cats in a row, then 2 cats in a row centered */
-  const row1 = CATEGORIES.slice(0, 3);
-  const row2 = CATEGORIES.slice(3); // 2 items
-
-  const renderCard = (cat: (typeof CATEGORIES)[0], index: number) => (
-    <button
-      key={cat.id}
-      onClick={() => onSelectCategory(cat.id)}
-      className={`flex flex-col items-center justify-center gap-3 rounded-2xl border-2 ${t.card} ${t.border} shadow-sm transition-transform active:scale-95`}
-      style={{
-        aspectRatio: index < 3 ? "1/1" : "1/1.2",
-      }}
-    >
-      <img
-        src={cat.iconUrl}
-        alt={cat.name}
-        className="w-11 h-11 object-contain"
-        onError={(e) => {
-          (e.target as HTMLImageElement).outerHTML = `<span style="font-size:2.5rem;line-height:1">${EMOJIS[cat.id] ?? FALLBACK}</span>`;
-        }}
-      />
-      <span className={`text-sm font-semibold ${t.text}`}>{cat.name}</span>
-    </button>
-  );
-
   return (
     <div className="flex flex-col min-h-screen px-3 pt-6 pb-4">
       <motion.div
@@ -63,22 +37,49 @@ export default function MenuPage({ theme: t, cartCount, onSelectCategory }: Prop
           </p>
         </div>
 
-        {/* Categories — full screen grid */}
-        <div className="flex flex-col flex-1 gap-3">
-          {/* Row 1: 3 items */}
-          <div className="flex gap-3 flex-1">
-            {row1.map((cat, i) => renderCard(cat, i))}
+        {/* Categories — full-screen grid filling all space */}
+        <div className="grid grid-rows-2 gap-3 flex-1">
+          {/* Row 1: 3 columns */}
+          <div className="grid grid-cols-3 gap-3">
+            {CATEGORIES.slice(0, 3).map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => onSelectCategory(cat.id)}
+                className={`flex flex-col items-center justify-center gap-2 rounded-2xl border-2 ${t.card} ${t.border} shadow-sm transition-transform active:scale-95 h-full`}
+              >
+                <img
+                  src={cat.iconUrl}
+                  alt={cat.name}
+                  className="w-10 h-10 object-contain"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).outerHTML = `<span style="font-size:2.2rem">${EMOJIS[cat.id] ?? FALLBACK}</span>`;
+                  }}
+                />
+                <span className={`text-xs font-semibold ${t.text}`}>{cat.name}</span>
+              </button>
+            ))}
           </div>
 
-          {/* Row 2: 2 items (centered) */}
-          <div className="flex gap-3 flex-1">
-            <div className="flex-1" /> {/* spacer */}
-            {row2.map((cat, i) => (
-              <div key={cat.id} className="flex-1 flex">
-                {renderCard(cat, i + 3)}
-              </div>
+          {/* Row 2: 2 centered columns */}
+          <div className="flex gap-3 justify-center">
+            {CATEGORIES.slice(3).map((cat) => (
+              <button
+                key={cat.id}
+                onClick={() => onSelectCategory(cat.id)}
+                className={`flex flex-col items-center justify-center gap-2 rounded-2xl border-2 ${t.card} ${t.border} shadow-sm transition-transform active:scale-95 h-full`}
+                style={{ width: "calc(50% - 6px)" }}
+              >
+                <img
+                  src={cat.iconUrl}
+                  alt={cat.name}
+                  className="w-10 h-10 object-contain"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).outerHTML = `<span style="font-size:2.2rem">${EMOJIS[cat.id] ?? FALLBACK}</span>`;
+                  }}
+                />
+                <span className={`text-xs font-semibold ${t.text}`}>{cat.name}</span>
+              </button>
             ))}
-            <div className="flex-1" /> {/* spacer */}
           </div>
         </div>
 
