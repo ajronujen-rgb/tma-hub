@@ -1,7 +1,7 @@
 export default function App() {
   const apps = [
     { path: "/booking", emoji: "💎", name: "Запись к мастеру", desc: "Салон красоты", color: "bg-pink-50 text-pink-900 border-pink-200 hover:bg-pink-100" },
-    { path: "/menu", emoji: "🍽️", name: "Меню с заказом", desc: "Еда и напитки", color: "bg-amber-50 text-amber-900 border-amber-200 hover:bg-amber-100" },
+    { path: "/menu", emoji: "🍽️", name: "Меню с заказом", desc: "TableCafe — меню через QR", color: "bg-amber-50 text-amber-900 border-amber-200 hover:bg-amber-100" },
     { path: "/habits", emoji: "📊", name: "Трекинг привычек", desc: "Прогресс и цели", color: "bg-emerald-50 text-emerald-900 border-emerald-200 hover:bg-emerald-100" },
   ];
 
