@@ -13,27 +13,8 @@ import OrderStatusPage from "./OrderStatusPage";
 import MyOrdersPage from "./MyOrdersPage";
 import ProfilePage from "./ProfilePage";
 
-/* ---------- dark mode ---------- */
-function detectDark(): boolean {
-  try {
-    // Telegram Mini App provides its own color scheme
-    const tg = (window as any).Telegram?.WebApp;
-    if (tg?.colorScheme) return tg.colorScheme === "dark";
-    if (tg?.themeParams?.bg_color) {
-      // If background is dark-ish (hex < 128 avg), use dark mode
-      const c = parseInt(tg.themeParams.bg_color.replace("#", ""), 16);
-      return ((c >> 16) & 0xff) + ((c >> 8) & 0xff) + (c & 0xff) < 384;
-    }
-    const mql = window.matchMedia("(prefers-color-scheme: dark)");
-    return mql.matches;
-  } catch {
-    return true;
-  }
-}
-
 export default function MenuApp() {
-  const [darkMode] = useState(() => detectDark());
-  const t = getMenuTheme(darkMode);
+  const t = getMenuTheme();
 
   /* routing */
   const [tab, setTab] = useState<Tab>("menu");
@@ -116,8 +97,8 @@ export default function MenuApp() {
         className="fixed inset-0 z-0 pointer-events-none"
         style={{ backgroundImage: "url('/images/tableorder/bg.webp')", backgroundSize: "cover", backgroundPosition: "center" }}
       />
-      {/* Dark overlay for readability */}
-      <div className="fixed inset-0 z-0 pointer-events-none bg-black/70" />
+      {/* Dark overlay */}
+      <div className="fixed inset-0 z-0 pointer-events-none bg-black/50" />
       <div className="relative z-10">
       {/* Cart toast */}
       <AnimatePresence>
