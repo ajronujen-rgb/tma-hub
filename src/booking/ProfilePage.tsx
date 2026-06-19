@@ -28,11 +28,11 @@ export default function ProfilePage({ theme: t, name, visitCount, favoriteMaster
   ];
 
   return (
-    <div className="flex flex-col min-h-screen px-5 py-8">
+    <div className="flex flex-col min-h-screen px-3 py-6">
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        className="w-full flex flex-col gap-5"
+        className="flex flex-col flex-1 gap-5"
       >
         {/* Avatar */}
         <div className="text-center">
@@ -91,7 +91,6 @@ export default function ProfilePage({ theme: t, name, visitCount, favoriteMaster
           </button>
         </div>
 
-        <div className="h-8" />
       </motion.div>
     </div>
   );

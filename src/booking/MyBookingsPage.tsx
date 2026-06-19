@@ -19,11 +19,11 @@ export default function MyBookingsPage({
   const [tab, setTab] = useLocalState<"future" | "past">("future");
 
   return (
-    <div className="flex flex-col min-h-screen px-5 py-8">
+    <div className="flex flex-col min-h-screen px-3 py-6">
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        className="w-full"
+        className="flex flex-col flex-1"
       >
         <h2 className={`text-xl font-bold mb-1 ${t.text}`}>Мои записи</h2>
 
@@ -109,7 +109,6 @@ export default function MyBookingsPage({
           ))}
         </div>
 
-        <div className="h-8" />
       </motion.div>
     </div>
   );

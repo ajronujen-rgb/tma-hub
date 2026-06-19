@@ -48,11 +48,11 @@ export default function CalendarPage({ theme: t, onSelect, onBack }: Props) {
   const slots = useMemo(() => (day ? generateSlots(day.date) : []), [selDay]);
 
   return (
-    <div className="flex flex-col min-h-screen px-5 py-8">
+    <div className="flex flex-col min-h-screen px-3 py-6">
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        className="w-full"
+        className="flex flex-col flex-1"
       >
         <button onClick={onBack} className={`text-sm mb-4 ${t.muted}`}>← Назад</button>
 
@@ -123,13 +123,12 @@ export default function CalendarPage({ theme: t, onSelect, onBack }: Props) {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => onSelect(day.date, selTime)}
-            className={`w-full mt-6 py-5 rounded-2xl font-semibold text-base tracking-wide ${t.btnBg} ${t.btnText}`}
+            className={`w-full mt-auto py-5 rounded-2xl font-semibold text-base tracking-wide ${t.btnBg} ${t.btnText}`}
           >
             Далее
           </motion.button>
         )}
 
-        <div className="h-8" />
       </motion.div>
     </div>
   );

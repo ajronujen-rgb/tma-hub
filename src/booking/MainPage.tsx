@@ -18,11 +18,11 @@ export default function MainPage({ theme: t, onSelect }: Props) {
   };
 
   return (
-    <div className="flex flex-col min-h-screen px-5 py-8">
+    <div className="flex flex-col min-h-screen px-3 py-6">
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        className="w-full flex flex-col gap-6"
+        className="flex flex-col flex-1 gap-6"
       >
         {/* Header */}
         <div className="text-center">
@@ -102,13 +102,11 @@ export default function MainPage({ theme: t, onSelect }: Props) {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={handleNext}
-            className={`w-full py-5 rounded-2xl font-semibold text-base tracking-wide ${t.btnBg} ${t.btnText}`}
+            className={`w-full mt-auto py-5 rounded-2xl font-semibold text-base tracking-wide ${t.btnBg} ${t.btnText}`}
           >
             Выбрать время
           </motion.button>
         )}
-
-        <div className="h-8" />
       </motion.div>
     </div>
   );
