@@ -111,11 +111,13 @@ export default function MenuApp() {
 
   return (
     <div className={`${t.bg} min-h-screen pb-20 relative`}>
-      {/* Background overlay */}
+      {/* Background image — full visibility */}
       <div
-        className="fixed inset-0 z-0 opacity-[0.04] pointer-events-none"
+        className="fixed inset-0 z-0 pointer-events-none"
         style={{ backgroundImage: "url('/images/tableorder/bg.webp')", backgroundSize: "cover", backgroundPosition: "center" }}
       />
+      {/* Dark overlay for readability */}
+      <div className="fixed inset-0 z-0 pointer-events-none bg-black/70" />
       <div className="relative z-10">
       {/* Cart toast */}
       <AnimatePresence>
