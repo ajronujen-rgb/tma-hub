@@ -18,7 +18,7 @@ const tabs: { id: Screen; label: string; icon: typeof Home }[] = [
 export default function Navigation({ current, onNavigate, theme: t }: Props) {
   return (
     <nav className={`fixed bottom-0 left-0 right-0 z-50 pb-safe ${t.card} ${t.border} border-t shadow-lg`}>
-      <div className="flex items-center justify-around max-w-md mx-auto px-2 py-2">
+      <div className="flex items-center justify-around w-full px-2 py-2">
         {tabs.map((tab) => {
           const Icon = tab.icon;
           const active = current === tab.id;

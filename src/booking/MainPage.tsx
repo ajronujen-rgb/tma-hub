@@ -22,7 +22,7 @@ export default function MainPage({ theme: t, onSelect }: Props) {
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        className="w-full max-w-sm mx-auto flex flex-col gap-6"
+        className="w-full flex flex-col gap-6"
       >
         {/* Header */}
         <div className="text-center">

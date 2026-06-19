@@ -67,7 +67,7 @@ export default function ConfirmationPage({ theme: t, service, master, date, time
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        className="w-full max-w-sm mx-auto"
+        className="w-full"
       >
         <button onClick={onBack} className={`text-sm mb-4 ${t.muted}`}>← Назад</button>
 

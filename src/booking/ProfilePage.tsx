@@ -32,7 +32,7 @@ export default function ProfilePage({ theme: t, name, visitCount, favoriteMaster
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        className="w-full max-w-sm mx-auto flex flex-col gap-5"
+        className="w-full flex flex-col gap-5"
       >
         {/* Avatar */}
         <div className="text-center">

@@ -23,7 +23,7 @@ export default function MyBookingsPage({
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        className="w-full max-w-sm mx-auto"
+        className="w-full"
       >
         <h2 className={`text-xl font-bold mb-1 ${t.text}`}>Мои записи</h2>
 
