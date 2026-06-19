@@ -16,6 +16,14 @@ import ProfilePage from "./ProfilePage";
 /* ---------- dark mode ---------- */
 function detectDark(): boolean {
   try {
+    // Telegram Mini App provides its own color scheme
+    const tg = (window as any).Telegram?.WebApp;
+    if (tg?.colorScheme) return tg.colorScheme === "dark";
+    if (tg?.themeParams?.bg_color) {
+      // If background is dark-ish (hex < 128 avg), use dark mode
+      const c = parseInt(tg.themeParams.bg_color.replace("#", ""), 16);
+      return ((c >> 16) & 0xff) + ((c >> 8) & 0xff) + (c & 0xff) < 384;
+    }
     const mql = window.matchMedia("(prefers-color-scheme: dark)");
     return mql.matches;
   } catch {
