@@ -102,7 +102,7 @@ export default function MainPage({ theme: t, onSelect }: Props) {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={handleNext}
-            className={`w-full py-4 rounded-2xl font-semibold text-sm ${t.btnBg} ${t.btnText}`}
+            className={`w-full py-5 rounded-2xl font-semibold text-base tracking-wide ${t.btnBg} ${t.btnText}`}
           >
             Выбрать время
           </motion.button>

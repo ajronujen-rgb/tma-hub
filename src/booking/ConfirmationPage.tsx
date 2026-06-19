@@ -89,7 +89,7 @@ export default function ConfirmationPage({ theme: t, service, master, date, time
             onChange={(e) => setName(e.target.value)}
             placeholder="Ваше имя"
             maxLength={40}
-            className={`w-full px-5 py-4 rounded-2xl border text-base outline-none transition-all ${t.card} ${t.border} ${t.text} placeholder:${t.muted}`}
+            className={`w-full px-6 py-5 rounded-2xl border text-lg outline-none transition-all ${t.card} ${t.border} ${t.text} placeholder:${t.muted}`}
             required
           />
           <input
@@ -98,7 +98,7 @@ export default function ConfirmationPage({ theme: t, service, master, date, time
             placeholder="Номер телефона"
             type="tel"
             maxLength={20}
-            className={`w-full px-5 py-4 rounded-2xl border text-base outline-none transition-all ${t.card} ${t.border} ${t.text} placeholder:${t.muted}`}
+            className={`w-full px-6 py-5 rounded-2xl border text-lg outline-none transition-all ${t.card} ${t.border} ${t.text} placeholder:${t.muted}`}
             required
           />
 
@@ -107,7 +107,7 @@ export default function ConfirmationPage({ theme: t, service, master, date, time
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             disabled={!name.trim() || !phone.trim()}
-            className={`w-full mt-2 py-4 rounded-2xl font-semibold text-sm ${t.btnBg} ${t.btnText} disabled:opacity-40`}
+            className={`w-full mt-3 py-5 rounded-2xl font-semibold text-base tracking-wide ${t.btnBg} ${t.btnText} disabled:opacity-40`}
           >
             Записаться
           </motion.button>

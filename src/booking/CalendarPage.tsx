@@ -123,7 +123,7 @@ export default function CalendarPage({ theme: t, onSelect, onBack }: Props) {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => onSelect(day.date, selTime)}
-            className={`w-full mt-6 py-4 rounded-2xl font-semibold text-sm ${t.btnBg} ${t.btnText}`}
+            className={`w-full mt-6 py-5 rounded-2xl font-semibold text-base tracking-wide ${t.btnBg} ${t.btnText}`}
           >
             Далее
           </motion.button>
