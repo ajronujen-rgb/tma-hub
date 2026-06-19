@@ -79,15 +79,15 @@ export default function ProfilePage({ theme: t, name, visitCount, favoriteMaster
         <div className="flex flex-col gap-3">
           <a
             href="tg://resolve?domain=BeautyStudioBot"
-            className={`flex items-center justify-center gap-2 w-full py-4 rounded-2xl font-semibold text-sm ${t.btnBg} ${t.btnText}`}
+            className={`flex items-center justify-center gap-3 w-full py-6 rounded-2xl font-semibold text-base ${t.btnBg} ${t.btnText}`}
           >
-            <Phone className="w-4 h-4" /> Связаться с салоном
+            <Phone className="w-5 h-5" /> Связаться с салоном
           </a>
           <button
             onClick={handleShare}
-            className={`flex items-center justify-center gap-2 w-full py-4 rounded-2xl font-semibold text-sm ${t.card} ${t.border} border ${t.text}`}
+            className={`flex items-center justify-center gap-3 w-full py-6 rounded-2xl font-semibold text-base ${t.card} ${t.border} border ${t.text}`}
           >
-            <Share2 className="w-4 h-4" /> Поделиться
+            <Share2 className="w-5 h-5" /> Поделиться
           </button>
         </div>
 

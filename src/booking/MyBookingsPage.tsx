@@ -86,7 +86,7 @@ export default function MyBookingsPage({
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, x: -20 }}
-              className={`${t.card} ${t.border} border rounded-2xl p-4 shadow-sm`}
+              className={`${t.card} ${t.border} border rounded-2xl p-5 shadow-sm`}
             >
               <div className="flex items-start justify-between mb-2">
                 <div>

@@ -41,16 +41,16 @@ export default function MainPage({ theme: t, onSelect }: Props) {
                 <button
                   key={s.id}
                   onClick={() => { setSelected(s); setMaster(null); }}
-                  className={`flex items-center gap-3 p-4 rounded-2xl border text-left transition-all ${
+                  className={`flex items-center gap-4 p-5 rounded-2xl border text-left transition-all ${
                     isSel
                       ? `${t.btnBg} ${t.btnText} border-transparent`
                       : `${t.card} ${t.border} ${t.text}`
                   }`}
                 >
-                  <img src={s.iconUrl} alt={s.name} className="w-9 h-9 rounded-lg object-cover" />
+                  <img src={s.iconUrl} alt={s.name} className="w-10 h-10 rounded-xl object-cover" />
                   <div className="flex-1 min-w-0">
-                    <div className={`text-sm font-medium ${isSel ? t.btnText : t.text}`}>{s.name}</div>
-                    <div className={`text-xs mt-0.5 ${isSel ? `${t.btnText}/70` : t.muted}`}>
+                    <div className={`text-base font-medium ${isSel ? t.btnText : t.text}`}>{s.name}</div>
+                    <div className={`text-sm mt-0.5 ${isSel ? `${t.btnText}/70` : t.muted}`}>
                       {s.price}₽ · {s.duration}
                     </div>
                   </div>
@@ -79,14 +79,14 @@ export default function MainPage({ theme: t, onSelect }: Props) {
                   <button
                     key={m.id}
                     onClick={() => setMaster(m)}
-                    className={`flex-1 p-4 rounded-2xl border text-center transition-all ${
+                    className={`flex-1 p-6 rounded-2xl border text-center transition-all ${
                       isSel
                         ? `${t.btnBg} ${t.btnText} border-transparent`
                         : `${t.card} ${t.border} ${t.text}`
                     }`}
                   >
-                    <img src={m.imageUrl} alt={m.name} className="w-12 h-12 rounded-full object-cover mx-auto mb-1" />
-                    <div className="text-xs font-medium">{m.name}</div>
+                    <img src={m.imageUrl} alt={m.name} className="w-16 h-16 rounded-full object-cover mx-auto mb-2" />
+                    <div className="text-sm font-medium">{m.name}</div>
                   </button>
                 );
               })}
@@ -102,7 +102,7 @@ export default function MainPage({ theme: t, onSelect }: Props) {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={handleNext}
-            className={`w-full mt-auto py-5 rounded-2xl font-semibold text-base tracking-wide ${t.btnBg} ${t.btnText}`}
+            className={`w-full mt-auto py-7 rounded-2xl font-semibold text-lg tracking-wide ${t.btnBg} ${t.btnText}`}
           >
             Выбрать время
           </motion.button>

@@ -54,7 +54,7 @@ export default function CalendarPage({ theme: t, onSelect, onBack }: Props) {
         animate={{ opacity: 1, y: 0 }}
         className="flex flex-col flex-1"
       >
-        <button onClick={onBack} className={`text-sm mb-4 ${t.muted}`}>← Назад</button>
+        <button onClick={onBack} className={`text-base mb-5 ${t.muted}`}>← Назад</button>
 
         <h2 className={`text-xl font-bold mb-4 ${t.text}`}>Выберите дату и время</h2>
 
@@ -123,7 +123,7 @@ export default function CalendarPage({ theme: t, onSelect, onBack }: Props) {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={() => onSelect(day.date, selTime)}
-            className={`w-full mt-auto py-5 rounded-2xl font-semibold text-base tracking-wide ${t.btnBg} ${t.btnText}`}
+            className={`w-full mt-auto py-7 rounded-2xl font-semibold text-lg tracking-wide ${t.btnBg} ${t.btnText}`}
           >
             Далее
           </motion.button>
