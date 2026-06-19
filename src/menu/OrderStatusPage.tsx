@@ -35,11 +35,16 @@ export default function OrderStatusPage({ order, theme: t, onClose }: Props) {
   const progress = ((currentStep) / (STEPS.length - 1)) * 100;
 
   return (
-    <div className="flex flex-col min-h-screen px-3 py-6">
+    <div className={`flex flex-col min-h-screen ${t.bg}`}>
+      {/* Background overlay */}
+      <div
+        className="fixed inset-0 z-0 opacity-[0.06] pointer-events-none"
+        style={{ backgroundImage: "url('/images/tableorder/bg.webp')", backgroundSize: "cover", backgroundPosition: "center" }}
+      />
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        className="flex flex-col flex-1 items-center justify-center"
+        className="flex flex-col flex-1 items-center justify-center px-3 py-6 relative z-10"
       >
         {/* Order id */}
         <p className={`text-xs ${t.muted} mb-6`}>Заказ {order.id}</p>
